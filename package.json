@@ -1,0 +1,32 @@
+{
+  "name": "fcc-api-combined",
+  "version": "1.0.0",
+  "description": "All FreeCodeCamp API projects combined into a single application",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/templetonpr/fcc-api-combined.git"
+  },
+  "author": "Patrick Templeton",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/templetonpr/fcc-api-combined/issues"
+  },
+  "homepage": "https://github.com/templetonpr/fcc-api-combined#readme",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "debug": "^2.2.0",
+    "express": "^4.13.4",
+    "jade": "^1.11.0",
+    "moment": "^2.13.0",
+    "morgan": "^1.7.0",
+    "multer": "^1.1.0",
+    "pg": "^4.5.5",
+    "pug": "^2.0.0-alpha6",
+    "serve-favicon": "^2.3.0"
+  }
+}
