@@ -1,11 +1,14 @@
 "use strict";
 
+// modules
+let pg         = require('pg');
 let path       = require('path');
-let logger     = require('morgan');
+let morgan     = require('morgan');
 let express    = require('express');
 let bodyParser = require('body-parser');
 let favicon    = require('serve-favicon');
 
+// routes
 let routes       = require('./routes/index');
 let headParse    = require('./routes/headParse');
 let imgSearch    = require('./routes/imgSearch');
@@ -15,16 +18,20 @@ let fileMetadata = require('./routes/fileMetadata');
 
 let app = express();
 
+app.disable('x-powered-by');
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
+// misc middleware config
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
+app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// routes setup
 app.use('/', routes);
 app.use('/hp', headParse);
 app.use('/img', imgSearch);

@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1= title
+  p Microservice that accepts either a unix timestamp or date, and responds with a JSON string that contains the date in both formats.
+  br
+  h3 Example Usage:
+  pre GET /ts/December%2015,%202015
+  br
+  h3 Example Output:
+  pre { "unix": 1450137600, "natural": "December 15, 2015" }
+  br
+  p Some links for testing:
+  ul
+    li: a(href="/ts/December%2015,%202015") Should work
+    li: a(href="/ts/1450137600") Should also work
+    li: a(href="/ts/foobarbaz") Should return a null date
+
+
