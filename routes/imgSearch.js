@@ -3,7 +3,12 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('img search');
+  res.render('timestamp', {
+      title: 'Image Search Abstraction Layer',
+      shortDesc: "TODO",
+      usage: "TODO",
+      output: 'TODO'
+    });
 });
 
 module.exports = router;

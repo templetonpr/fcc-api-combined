@@ -6,7 +6,7 @@ router.get('/', function(req, res) {
     title: "Request Header Parser",
     shortDesc: "Get header info from HTTP request",
     usage: "GET /hp/whoami",
-    output: '{ "ipaddress": your public ip address, "language": your language, "software": your operating system }'
+    output: '{\n"ipaddress": your public ip address, \n"language": your language, \n"software": your operating system \n}'
   });
 });
 

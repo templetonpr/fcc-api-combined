@@ -1,16 +1,25 @@
 extends layout
 
 block content
-  h1= title
-  p= shortDesc
-  br
-  h3 Example Usage:
-  pre= usage
-  br
-  h3 Example Output:
-  pre= output
-  br
-  form(action="/fmd" method="post" enctype="multipart/form-data" name="file-metadata-form")
-    input(type="file" name="uploaded-file" required)
-    input(type="submit" value="Send")
-  p Maximum allowable file size is #{FMD_MAX_FILE_SIZE} bytes.
+  div.row
+    div.col-xs-12
+      h1= title
+      p= shortDesc
+  div.row
+    div.col-xs-12.col-md-6
+      h3 Example Usage:
+      pre= usage
+    div.col-xs-12.col-md-6
+      h3 Example Output:
+      pre= output
+  div.row
+    br
+    div.col-xs-12.col-md-6.col-md-offset-3.panel.well.well-lg
+      h4.text-center Test Form
+      hr
+      form(action="/fmd" method="post" enctype="multipart/form-data" name="file-metadata-form")
+        div.form-group
+          input(type="file" name="uploaded-file" required)
+          p.help-block Maximum allowable file size is #{FMD_MAX_FILE_SIZE} bytes.
+        div.form-group
+          input.btn.btn-primary.btn-block(type="submit" value="Send")

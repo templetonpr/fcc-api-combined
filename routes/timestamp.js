@@ -4,7 +4,12 @@ var moment = require('moment');
 var router = express.Router();
 
 router.get("/", function(req, res) {
-    res.render('timestamp', { title: 'Timestamp Microservice' });
+    res.render('timestamp', {
+      title: 'Timestamp Microservice',
+      shortDesc: "Microservice that accepts either a unix timestamp or date, and responds with a JSON string that contains the date in both formats.",
+      usage: "GET /ts/December%2015,%202015",
+      output: '{ "unix": 1450137600, "natural": "December 15, 2015" }'
+    });
 });
 
 router.get("/:date", function(req, res) {
