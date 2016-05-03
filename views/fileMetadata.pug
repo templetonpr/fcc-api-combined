@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= title
+  p= shortDesc
+  br
+  h3 Example Usage:
+  pre= usage
+  br
+  h3 Example Output:
+  pre= output
+  br
+  form(action="/fmd" method="post" enctype="multipart/form-data" name="file-metadata-form")
+    input(type="file" name="uploaded-file" required)
+    input(type="submit" value="Send")
+  p Maximum allowable file size is #{FMD_MAX_FILE_SIZE} bytes.
