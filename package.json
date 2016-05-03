@@ -4,7 +4,7 @@
   "description": "All FreeCodeCamp API projects combined into a single application",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "start": "node ./bin/www"
   },
   "repository": {
@@ -21,12 +21,16 @@
     "body-parser": "^1.15.0",
     "debug": "^2.2.0",
     "express": "^4.13.4",
-    "jade": "^1.11.0",
     "moment": "^2.13.0",
     "morgan": "^1.7.0",
     "multer": "^1.1.0",
     "pg": "^4.5.5",
     "pug": "^2.0.0-alpha6",
     "serve-favicon": "^2.3.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
+    "mocha": "^2.4.5"
   }
 }
