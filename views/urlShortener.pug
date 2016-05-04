@@ -12,3 +12,11 @@ block content
     div.col-xs-12.col-md-6
       h3 Example Output:
       pre= output
+  div.row
+    br
+    div.col-xs-12.col-md-6.col-md-offset-3.panel.well.well-lg
+      form(action="/urls/new" method="post" name="url-form")
+        div.form-group
+          input(type="url" name="original_url" placeholder="http://www.example.com/your/url/goes/here" style="width: 100%;" required)
+        div.form-group
+          input.btn.btn-primary.btn-block(type="submit" value="Submit")

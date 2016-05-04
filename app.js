@@ -22,8 +22,9 @@ let app = express();
 app.disable('x-powered-by');
 
 // app variables
-app.set('FMD_MAX_FILE_SIZE', (process.env.FMD_MAX_FILE_SIZE || 1000000));
 app.set('FMD_SAVE_FILES', (process.env.FMD_SAVE_FILES || false));
+app.set('FMD_MAX_FILE_SIZE', (process.env.FMD_MAX_FILE_SIZE || 1000000));
+app.set('DATABASE_URL', (process.env.DATABASE_URL || "postgres://test:test@localhost/test_db"));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

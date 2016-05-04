@@ -4,7 +4,7 @@
   "description": "All FreeCodeCamp API projects combined into a single application",
   "main": "app.js",
   "scripts": {
-    "test": "mocha",
+    "test": "mocha -R list",
     "start": "set DEBUG=fcc-api-combined:* & node ./bin/www"
   },
   "repository": {
@@ -24,9 +24,11 @@
     "moment": "^2.13.0",
     "morgan": "^1.7.0",
     "multer": "^1.1.0",
-    "pg": "^4.5.5",
+    "pg-promise": "^4.0.4",
     "pug": "^2.0.0-alpha6",
-    "serve-favicon": "^2.3.0"
+    "request": "^2.72.0",
+    "serve-favicon": "^2.3.0",
+    "validator": "^5.2.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
