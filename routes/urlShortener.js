@@ -6,6 +6,8 @@ let validator  = require('validator');
 let bodyParser = require('body-parser');
 let pgp        = require('pg-promise')();
 
+var QueryResultError = pgp.errors.QueryResultError;
+var qrec = pgp.errors.queryResultErrorCode;
 
 let router = express.Router();
 
@@ -47,7 +49,7 @@ router.get('/:short_code', function (req, res, next) {
 
   }).catch(function (error) {
     let err = new Error();
-    if (error.message == "No data returned from the query.") {
+    if (error instanceof QueryResultError && error.code === qrec.noData) {
       err.message = "URL doesn't exist";
       err.status = 404;
     } else {
