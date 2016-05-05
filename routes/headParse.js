@@ -1,5 +1,7 @@
-var express = require('express');
-var router = express.Router();
+"use strict";
+
+let express = require('express');
+let router = express.Router();
 
 router.get('/', function(req, res) {
   res.render('headParse', {
@@ -11,11 +13,18 @@ router.get('/', function(req, res) {
 });
 
 router.get('/whoami', function(req, res) {
-  var info = {
-    "ipaddress": req.ip,
-    "language": req.headers["accept-language"].split(",")[0],
-    "software": req.headers["user-agent"].split("(")[1].split(")")[0]
+  
+  let ipaddress = req.ip ? req.ip : null;
+  let language = req.headers["accept-language"] || null;
+  let software = req.headers["user-agent"] || null;
+  
+  let info = {
+    "ipaddress": ipaddress,
+    "language": language,
+    "software": software
   };
+
+  res.status(200);
   res.json(info);
 });
 
