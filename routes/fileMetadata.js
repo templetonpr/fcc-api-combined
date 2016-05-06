@@ -51,12 +51,13 @@ router.post('/', function(req, res, next) {
   upload(req, res, function(err) {
     if (err) {
       if (err.code === 'LIMIT_FILE_SIZE') {
-        err.status = 413;
-        // res.status(413).send("<p>Error: upload exceeded max size of " + FMD_MAX_FILE_SIZE + " bytes.");
-        next(err);
+        res.status(413).json({
+          error: "Upload exceeds max size of " + FMD_MAX_FILE_SIZE + " bytes."
+        });
       } else {
-        // res.send("<p>There was an error processing your file. Please try again.</p>");
-        next(err);
+        res.status(500).json({
+          error: "There was an error processing your file. Please try again."
+        });
       }
     } else {
       res.json({
