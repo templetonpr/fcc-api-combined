@@ -19,7 +19,32 @@ describe('imgSearch', function() {
       });
   });
 
-  it('should correctly respond to GET /img/latest');
-  it('should correctly respond to GET /img/search/:searchterm');
-  it('should correctly respond to GET /img/search/:searchterm?offset=n');
+  it('should correctly respond to GET /img/latest', function(done) {
+    chai.request(app)
+      .get('/img/latest')
+      .end(function(err, res) {
+        if (err) done(err);
+        expect(res).to.have.status(200);
+        expect(res).to.be.json;
+        let text = JSON.parse(res.text);
+        expect(text).to.have.property('latest');
+        done();
+      });
+  });
+  
+  it('should correctly respond to GET /img/search/:searchterm', function(done) {
+    let searchTerm = "Dogs with goggles";
+    let offset = "10";
+    chai.request(app)
+      .get('/img/search/' + searchTerm + "?offset=" + offset)
+      .end(function(err, res) {
+        if (err) done(err);
+        expect(res).to.have.status(200);
+        expect(res).to.be.json;
+        let text = JSON.parse(res.text);
+        expect(text).to.have.property('searchTerm', searchTerm);
+        expect(text).to.have.property('offset', offset);
+        done();
+      });
+  });
 });
